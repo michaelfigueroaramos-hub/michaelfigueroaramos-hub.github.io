@@ -625,10 +625,10 @@ After completing these steps, your `<main>` section should look like this:
     <th style="text-align: left; padding: 10px; background-color: #444; color: #e2e2e2; border-bottom: 1px solid #666;">
       💡 Why Add CSS?
     </th>
-  </tr>
+      CSS makes your site look polished by controlling colors, layouts, and fonts.   </tr>
   <tr>
     <td style="padding: 10px; color: #e2e2e2;">
-      CSS makes your site look polished by controlling colors, layouts, and fonts. Styling helps create a better user experience.
+Styling helps create a better user experience.
     </td>
   </tr>
 </table>
