@@ -32,11 +32,11 @@ $(function () {
     // TODO 2 - Create Platforms - Left to Right Level Progression //
 
     // Level 1 - Starting platforms (left side)
-    createPlatform(50, 350, 100, 20); // Starting platform
-    createPlatform(150, 300, 100, 20); // Up and right
+    createPlatform(700, 600, 100, 20); // Starting platform
+    createPlatform(200, 100, 100, 20); // Up and right
     createPlatform(250, 280, 100, 20); // Continue right
     createPlatform(350, 330, 100, 20); // Step down
-    createPlatform(450, 280, 100, 20); // Back up, moving right
+    createPlatform(500, 280, 100, 20); // Back up, moving right
     createPlatform(550, 300, 100, 20, "yellow"); // Approach barrier
 
     // Level 2 - Middle progression platforms

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -42,10 +42,12 @@
         var box = jQuery(".box"); // reference to the HTML .box element
         var board = jQuery(".board"); // reference to the HTML .board element
         var boardWidth = board.width(); // the maximum X-Coordinate of the screen
+        var boardHeight = board.height(); // the maximum Y-Coordinate of the screen
 
         // update the boardWidth variable when the window is resized
         jQuery(window).on("resize", function () {
           boardWidth = board.width();
+          boardHeight = board.height();
         });
 
         // Every 50 milliseconds, call the update Function (see below)
@@ -54,9 +56,10 @@
         // Every time the box is clicked, call the handleBoxClick Function (see below)
         box.on("click", handleBoxClick);
 
-        // moves the Box to a new position on the screen along the X-Axis
-        function moveBoxTo(newPositionX) {
+        // moves the Box to a new position on the screen along the X and Y axes
+        function moveBoxTo(newPositionX, newPositionY) {
           box.css("left", newPositionX);
+          box.css("top", newPositionY);
         }
 
         // changes the text displayed on the Box
@@ -69,10 +72,11 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
-
-
-
+        var boxPositionX = 0;
+        var boxPositionY = 0;
+        var boxSpeed = 10;
+        var boxSpeedY = 10;
+        var clickCount = 0;
 
         /**
          * This Function will be called 20 times/second.
@@ -80,10 +84,32 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+          // Update position by adding speed
+          boxPositionX = boxPositionX + boxSpeed;
+          boxPositionY = boxPositionY + boxSpeedY;
 
-        
+          // Check if box hits the right edge
+          if (boxPositionX >= boardWidth - 70) {
+            boxSpeed = boxSpeed * -1;
+          }
 
-          
+          // Check if box hits the left edge
+          if (boxPositionX <= 0) {
+            boxSpeed = boxSpeed * -1;
+          }
+
+          // Check if box hits the bottom edge
+          if (boxPositionY >= boardHeight - 70) {
+            boxSpeedY = boxSpeedY * -1;
+          }
+
+          // Check if box hits the top edge
+          if (boxPositionY <= 0) {
+            boxSpeedY = boxSpeedY * -1;
+          }
+
+          // Move the box to the new position
+          moveBoxTo(boxPositionX, boxPositionY);
         }
 
         /**
@@ -94,14 +120,9 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-
-
-
-
+          clickCount = clickCount + 1;
+          changeBoxText(clickCount);
         }
-
-
-        
       })();
     </script>
   </body>
